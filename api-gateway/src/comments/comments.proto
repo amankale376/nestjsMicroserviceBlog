@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package app;
+
+service CommentsController{
+    rpc GetComments (requestComments) returns (responseComments);
+    rpc NewComments (requestNewComment) returns (resposeNewComment);
+}
+
+message requestComments{
+    int32 id = 1; 
+}
+
+message responseComment{
+    int32 commentId = 1;
+    int32 postId = 2;
+    string content = 3;
+}
+
+message responseComments{
+    repeated responseComment comment = 1;
+}
+
+message requestNewComment{
+    int32 id = 1;
+    string content = 2;
+}
+message resposeNewComment{
+    string message = 1;
+}

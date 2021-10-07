@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package app;
+
+service PostsController{
+    rpc GetPosts (requestPosts) returns (arrayPosts);
+    rpc NewPost (requestNewPost) returns (responseNewPost);
+}
+
+message requestNewPost{
+    string title = 1;
+}
+
+message requestPosts{
+}
+
+message arrayPosts{
+  int32 id = 1;
+  string title = 2;
+}
+
+message responseNewPost{
+    string message = 1;
+}

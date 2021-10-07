@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type responseNewPost {
+  message: String!
+}
+
+type responseComment {
+  commentId: Float!
+  postId: Float!
+  content: String!
+}
+
+type responseComments {
+  comment: responseComment!
+}
+
+type responseNewComment {
+  message: String!
+}
+
+type Query {
+  getComments(id: Float!): [responseComments!]!
+}
+
+type Mutation {
+  newPost(body: newPostBody!): responseNewPost!
+  newComments(data: requestNewCommentDTO!): responseNewComment!
+}
+
+input newPostBody {
+  title: String!
+}
+
+input requestNewCommentDTO {
+  id: Float!
+  content: String!
+}
